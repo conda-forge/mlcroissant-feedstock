@@ -1,5 +1,5 @@
 {% set name = "mlcroissant" %}
-{% set version = "1.0.9" %}
+{% set version = "1.0.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mlcroissant-{{ version }}.tar.gz
-  sha256: 1258906cd26da983a86d2ab3878cc666b727b58a1dad438bb634a565000d61f4
+  sha256: 419c162888e78486df50aafe45c75f91866dd84d57aff9da02c4d158d74d5b74
 
 build:
   entry_points:
