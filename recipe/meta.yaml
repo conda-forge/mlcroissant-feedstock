@@ -1,5 +1,5 @@
 {% set name = "mlcroissant" %}
-{% set version = "1.0.12" %}
+{% set version = "1.0.13" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mlcroissant-{{ version }}.tar.gz
-  sha256: 0f102206da26fef33ca10614dc7a969965b8c7e9bfa8b65db90b7c0ca60e3bdc
+  sha256: 8aebed11063bb75e2cb56adb7ac989a86b396ae5c741a3ba4c50fe299c2dd97d
 
 build:
   entry_points:
     - mlcroissant = mlcroissant.scripts.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
