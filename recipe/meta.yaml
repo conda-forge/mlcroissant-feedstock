@@ -36,6 +36,7 @@ requirements:
     - tqdm
     - typing_extensions
     - importlib_resources
+    - scipy
 
 test:
   imports:
