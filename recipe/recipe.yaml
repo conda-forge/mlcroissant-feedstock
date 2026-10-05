@@ -1,0 +1,62 @@
+schema_version: 1
+
+context:
+  name: mlcroissant
+  version: "1.1.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/mlcroissant-${{ version }}.tar.gz
+  sha256: 1e42053eee457cccf2412bbea7bdd6d312fdf68ba31d350957ebc8850aa95ca1
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - mlcroissant = mlcroissant.scripts.cli:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - setuptools
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - absl-py
+    - etils >=1.7.0
+    - jsonpath-rw
+    - networkx
+    - pandas
+    - pandas-stubs
+    - python-dateutil
+    - rdflib
+    - requests
+    - tqdm
+    - typing_extensions
+    - importlib_resources
+    - scipy
+    - jinja2
+
+tests:
+  - python:
+      imports:
+        - mlcroissant
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  summary: MLCommons datasets format.
+  license: Apache-2.0
+  license_file: LICENSE.md
+  homepage: https://github.com/mlcommons/croissant
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
