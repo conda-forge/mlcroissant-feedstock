@@ -36,6 +36,7 @@ requirements:
     - typing_extensions
     - importlib_resources
     - scipy
+    - jinja2
 
 test:
   imports:
